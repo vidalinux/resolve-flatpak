@@ -1,0 +1,49 @@
+####
+# Flatpak Configuration for building DaVinci Resolve
+#
+####
+app-id: com.blackmagic.ResolveStudio
+runtime: org.freedesktop.Platform
+runtime-version: &runtime-version '22.08'
+sdk: org.freedesktop.Sdk
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-cache
+  - --filesystem=xdg-data
+  - --filesystem=xdg-videos
+  - --filesystem=~/.local/share/DaVinciResolve
+
+command: /app/bin/resolve.sh
+modules:
+  - shared-modules/glu/glu-9.json
+  - name: resolve
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - install -Dm644 logo.png /app/share/icons/hicolor/scalable/apps/com.blackmagic.ResolveStudio.png
+      - install -Dm644 com.blackmagic.ResolveStudio.desktop /app/share/applications/com.blackmagic.ResolveStudio.desktop
+      - |
+        ./run_complete_installation.sh --studio
+    sources:
+      - type: file
+        path: shell/setup_resolve.sh
+      - type: file
+        path: shell/setup_directories.sh
+      - type: file
+        path: shell/download-resolve.sh
+      - type: file
+        path: shell/resolve.sh
+      - type: file
+        path: run_complete_installation.sh
+      - type: file
+        path: logo.png
+      - type: file
+        path: com.blackmagic.ResolveStudio.desktop
