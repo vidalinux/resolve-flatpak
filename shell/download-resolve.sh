@@ -2,9 +2,9 @@
 
 if [[ $1 = studio ]];
 then
-_downloadid='399deb23977e4b899a81734a070408d3'
+_downloadid='86463718c6d1491d8d95f8b49f75c4db'
 _referid='7a1a0b5ffaf34f9588fd46683d40da75'
-_pkgver=19.0b3
+_pkgver=19.0.3
 _archive_name=DaVinci_Resolve_Studio_${_pkgver}_Linux
 _reqjson="{ \
     \"firstname\": \"Arch\", \
@@ -17,9 +17,9 @@ _reqjson="{ \
     \"product\": \"DaVinci Resolve\" \
 }"
 else
-_downloadid='3f82e78a15b14cb0a5a64a848bfce22f'
+_downloadid='ee1da4f13df74d72b6da783ead2ed875'
 _referid='77ef91f67a9e411bbbe299e595b4cfcc'
-_pkgver=19.0b3
+_pkgver=19.0.3
 _archive_name=DaVinci_Resolve_${_pkgver}_Linux
 _reqjson="{ \
     \"firstname\": \"Arch\", \
